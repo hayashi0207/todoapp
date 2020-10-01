@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Tasks from "./Tasks";
 import Form from "./Form";
+import Buttons from "./Buttons";
 
 const Api: React.FC = () => {
   interface Task {
@@ -112,9 +113,17 @@ const Api: React.FC = () => {
         handleContentChange={handleContentChange}
       />
       {editedTask.id ? (
-        <button onClick={() => updateTask(editedTask)}>更新</button>
+        <Buttons
+          editedTask={editedTask}
+          text="更新"
+          crudTask={() => updateTask(editedTask)}
+        />
       ) : (
-        <button onClick={() => createTask(editedTask)}>追加</button>
+        <Buttons
+          editedTask={editedTask}
+          text="追加"
+          crudTask={() => createTask(editedTask)}
+        />
       )}
     </div>
   );
