@@ -118,17 +118,15 @@ const Api: React.FC = () => {
           />
         )}
       </div>
-      <div className="tasks-area">
-        <ul>
-          {tasks.map((task: Task) => (
-            <Tasks
-              task={task}
-              setEditedTask={() => setEditedTask(task)}
-              deleteTask={() => deleteTask(task.id)}
-            />
-          ))}
-        </ul>
-      </div>
+      <ul>
+        {tasks.map((task: Task) => (
+          <Tasks
+            task={task}
+            setEditedTask={() => setEditedTask(task)}
+            deleteTask={() => deleteTask(task.id)}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
