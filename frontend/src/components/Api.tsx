@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Tasks from "./Tasks";
 import Form from "./Form";
-import Buttons from "./Buttons";
+import Buttons from "./TextButtons";
 
 const Api: React.FC = () => {
   interface Task {
@@ -106,13 +106,13 @@ const Api: React.FC = () => {
       {editedTask.id ? (
         <Buttons
           editedTask={editedTask}
-          text="更新"
+          text="save"
           crudTask={() => updateTask(editedTask)}
         />
       ) : (
         <Buttons
           editedTask={editedTask}
-          text="追加"
+          text="create"
           crudTask={() => createTask(editedTask)}
         />
       )}

@@ -1,5 +1,5 @@
 import React from "react";
-import Buttons from "./Buttons";
+import Buttons from "./IconButtons";
 
 type Props = {
   task: {
@@ -19,12 +19,12 @@ const Tasks: React.FC<Props> = (props) => {
         {props.task.content}
         <Buttons
           editedTask={props.task}
-          text="編集"
+          isType="edit"
           crudTask={() => props.setEditedTask(props.task)}
         />
         <Buttons
           editedTask={props.task}
-          text="削除"
+          isType="delete"
           crudTask={() => props.deleteTask(props.task.id)}
         />
       </li>
