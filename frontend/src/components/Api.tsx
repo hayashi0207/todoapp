@@ -52,7 +52,7 @@ const Api: React.FC = () => {
 
   const updateTask = (task: Task) => {
     axios
-      .post(`http://127.0.0.1:8000/api/todolist/${task.id}`, task, {
+      .put(`http://127.0.0.1:8000/api/todolist/${task.id}/`, task, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token c1b7a43871127d3e4e9b88768d9bc18180be80a8",
