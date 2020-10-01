@@ -6,8 +6,8 @@ type Props = {
     title: string;
     content: string;
   };
-  setEditedTask: VoidFunction;
-  deleteTask: VoidFunction;
+  setEditedTask: Function;
+  deleteTask: Function;
 };
 
 const Tasks: React.FC<Props> = (props) => {
@@ -16,8 +16,8 @@ const Tasks: React.FC<Props> = (props) => {
       <li key={props.task.id}>
         {props.task.title}
         {props.task.content}
-        <button onClick={() => props.setEditedTask}>編集</button>
-        <button onClick={() => props.deleteTask}>削除</button>
+        <button onClick={() => props.setEditedTask(props.task)}>編集</button>
+        <button onClick={() => props.deleteTask(props.task.id)}>削除</button>
       </li>
     </div>
   );
