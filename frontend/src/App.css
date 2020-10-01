@@ -1,5 +1,24 @@
-.App {
-  margin: 100px 400px;
+.App-content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.operation-area {
+  background-color: aquamarine;
+
+  text-align: center;
+  flex: 1;
+}
+.tasks-area {
+  background-color: royalblue;
+  text-align: center;
+  flex: 1;
+}
+ul {
+  margin: 0;
+  list-style: none;
 }
 button {
   border: none;

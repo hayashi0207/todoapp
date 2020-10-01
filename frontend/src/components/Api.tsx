@@ -97,34 +97,38 @@ const Api: React.FC = () => {
   };
 
   return (
-    <div>
-      <Form
-        editedTask={editedTask}
-        handleInputChange={handleInputChange}
-        handleContentChange={handleContentChange}
-      />
-      {editedTask.id ? (
-        <Buttons
+    <div className="App-content">
+      <div className="operation-area">
+        <Form
           editedTask={editedTask}
-          text="save"
-          crudTask={() => updateTask(editedTask)}
+          handleInputChange={handleInputChange}
+          handleContentChange={handleContentChange}
         />
-      ) : (
-        <Buttons
-          editedTask={editedTask}
-          text="create"
-          crudTask={() => createTask(editedTask)}
-        />
-      )}
-      <ul>
-        {tasks.map((task: Task) => (
-          <Tasks
-            task={task}
-            setEditedTask={() => setEditedTask(task)}
-            deleteTask={() => deleteTask(task.id)}
+        {editedTask.id ? (
+          <Buttons
+            editedTask={editedTask}
+            text="save"
+            crudTask={() => updateTask(editedTask)}
           />
-        ))}
-      </ul>
+        ) : (
+          <Buttons
+            editedTask={editedTask}
+            text="create"
+            crudTask={() => createTask(editedTask)}
+          />
+        )}
+      </div>
+      <div className="tasks-area">
+        <ul>
+          {tasks.map((task: Task) => (
+            <Tasks
+              task={task}
+              setEditedTask={() => setEditedTask(task)}
+              deleteTask={() => deleteTask(task.id)}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
