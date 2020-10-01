@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Tasks from "./Tasks";
+import Form from "./Form";
 
 const Api: React.FC = () => {
   interface Task {
@@ -105,23 +106,11 @@ const Api: React.FC = () => {
           />
         ))}
       </ul>
-      <input
-        type="text"
-        name="title"
-        value={editedTask.title}
-        onChange={handleInputChange}
-        placeholder="タイトル"
-        required
+      <Form
+        editedTask={editedTask}
+        handleInputChange={handleInputChange}
+        handleContentChange={handleContentChange}
       />
-      <br />
-      <textarea
-        name="content"
-        value={editedTask.content}
-        onChange={handleContentChange}
-        placeholder="内容"
-        required
-      />
-      <br />
       {editedTask.id ? (
         <button onClick={() => updateTask(editedTask)}>更新</button>
       ) : (
