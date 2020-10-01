@@ -3,6 +3,7 @@ import React from "react";
 type Props = {
   crudTask: Function;
   editedTask: {
+    id: string;
     title: string;
     content: string;
   };

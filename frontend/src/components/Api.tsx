@@ -98,15 +98,6 @@ const Api: React.FC = () => {
 
   return (
     <div>
-      <ul>
-        {tasks.map((task: Task) => (
-          <Tasks
-            task={task}
-            setEditedTask={() => setEditedTask(task)}
-            deleteTask={() => deleteTask(task.id)}
-          />
-        ))}
-      </ul>
       <Form
         editedTask={editedTask}
         handleInputChange={handleInputChange}
@@ -125,6 +116,15 @@ const Api: React.FC = () => {
           crudTask={() => createTask(editedTask)}
         />
       )}
+      <ul>
+        {tasks.map((task: Task) => (
+          <Tasks
+            task={task}
+            setEditedTask={() => setEditedTask(task)}
+            deleteTask={() => deleteTask(task.id)}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
