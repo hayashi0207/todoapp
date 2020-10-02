@@ -4,54 +4,54 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #dddddd;
 }
 .operation-area {
+  position: absolute;
   text-align: center;
-  width: 25%;
-  height: 50%;
+  width: 400px;
+  height: 640px;
+  z-index: 10;
+  top: 109px;
+  left: 362px;
 }
+.check-true {
+  color: "#3f51b5";
+}
+.check-true:hover {
+  background-color: "rgba(63,81,181,1)";
+}
+
 ul {
-  margin: 0;
+  position: absolute;
+  text-align: center;
+  width: 440px;
+  height: 605px;
+  top: 110px;
+  left: 870px;
+  overflow: auto;
+  z-index: 10;
+  padding: 0px;
   list-style: none;
 }
 button {
   border: none;
   outline: none;
   background: transparent;
-  border-radius: 100%;
 }
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.icon-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  opacity: 0.5;
+}
+.icon-buttons:hover {
+  display: flex;
+  align-items: flex-end;
+  opacity: 0.8;
 }
 
-.App-link {
-  color: #61dafb;
+.task-content {
+  width: 336px;
+  white-space: pre-wrap;
+  text-align: left;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

@@ -4,11 +4,9 @@ import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      "& > *": {
-        margin: theme.spacing(1),
-        width: "25ch",
-      },
+    form: {
+      marginTop: 100,
+      marginBottom: 50,
     },
   })
 );
@@ -26,27 +24,34 @@ const Form: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="standard-basic"
-          label="Title"
-          type="text"
-          name="title"
-          value={props.editedTask.title}
-          onChange={props.handleInputChange}
-          required
-        />
-        <br />
-        <TextField
-          id="standard-basic"
-          label="Content"
-          name="content"
-          value={props.editedTask.content}
-          onChange={props.handleContentChange}
-          multiline={true}
-          rows={5}
-          required
-        />
+      <form className={classes.form} noValidate autoComplete="off">
+        <div>
+          <TextField
+            id="standard-basic"
+            label="Title"
+            type="text"
+            name="title"
+            value={props.editedTask.title}
+            onChange={props.handleInputChange}
+            fullWidth
+            required
+          />
+        </div>
+      </form>
+      <form className={classes.form} noValidate autoComplete="off">
+        <div>
+          <TextField
+            id="standard-basic"
+            label="Content"
+            name="content"
+            value={props.editedTask.content}
+            onChange={props.handleContentChange}
+            multiline={true}
+            rows={8}
+            fullWidth
+            required
+          />
+        </div>
       </form>
     </div>
   );

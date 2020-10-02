@@ -1,5 +1,5 @@
 import React from "react";
-import Buttons from "./IconButtons";
+import IconButtons from "./IconButtons";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -11,9 +11,10 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
+    marginBottom: 5,
   },
 });
+
 type Props = {
   task: {
     id: string;
@@ -27,41 +28,37 @@ type Props = {
 const Tasks: React.FC<Props> = (props) => {
   const classes = useStyles();
   return (
-    <div key={props.task.id}>
-      <div className={classes.root}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-label="Expand"
-            aria-controls="additional-actions1-content"
-            id="additional-actions1-header"
-          >
-            <FormControlLabel
-              aria-label="Acknowledge"
-              onClick={(event) => event.stopPropagation()}
-              onFocus={(event) => event.stopPropagation()}
-              control={<Checkbox />}
-              label={props.task.title}
+    <li className={classes.root} key={props.task.id}>
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <FormControlLabel
+            onClick={(event) => event.stopPropagation()}
+            onFocus={(event) => event.stopPropagation()}
+            control={<Checkbox style={{ opacity: 0.5 }} />}
+            label={props.task.title}
+          />
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography color="textSecondary">
+            <div className="task-content">{props.task.content}</div>
+          </Typography>
+          <div className="icon-buttons">
+            <IconButtons
+              editedTask={props.task}
+              isType="edit"
+              crudTask={() => props.setEditedTask(props.task)}
             />
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography color="textSecondary">
-              {props.task.content}
-              <Buttons
-                editedTask={props.task}
-                isType="edit"
-                crudTask={() => props.setEditedTask(props.task)}
-              />
-              <Buttons
-                editedTask={props.task}
-                isType="delete"
-                crudTask={() => props.deleteTask(props.task.id)}
-              />
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </div>
-    </div>
+          </div>
+          <div className="icon-buttons">
+            <IconButtons
+              editedTask={props.task}
+              isType="delete"
+              crudTask={() => props.deleteTask(props.task.id)}
+            />
+          </div>
+        </AccordionDetails>
+      </Accordion>
+    </li>
   );
 };
 

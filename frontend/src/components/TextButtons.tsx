@@ -4,10 +4,9 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      "& > *": {
-        margin: theme.spacing(1),
-      },
+    button: {
+      marginTop: 100,
+      opacity: 0.5,
     },
   })
 );
@@ -27,11 +26,12 @@ const Buttons = (props: Props) => {
 
   return (
     <div>
-      <div className={classes.root}>
+      <div className={classes.button}>
         <Button
+          color="secondary"
           variant="contained"
-          color="primary"
           onClick={() => props.crudTask(props.editedTask)}
+          fullWidth
         >
           {props.text}
         </Button>

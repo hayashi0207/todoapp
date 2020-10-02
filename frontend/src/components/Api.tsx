@@ -4,7 +4,39 @@ import Tasks from "./Tasks";
 import Form from "./Form";
 import Buttons from "./TextButtons";
 
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    paperLeft: {
+      "& > *": {
+        position: "absolute",
+        top: 109,
+        left: 320,
+        zIndex: "0",
+        width: theme.spacing(60),
+        height: theme.spacing(80),
+        backgroundColor: "#eeeeee",
+      },
+    },
+    paperRight: {
+      "& > *": {
+        position: "absolute",
+        top: 109,
+        left: 850,
+        zIndex: "0",
+        width: theme.spacing(60),
+        height: theme.spacing(80),
+        backgroundColor: "#eeeeee",
+      },
+    },
+  })
+);
+
 const Api: React.FC = () => {
+  const classes = useStyles();
+
   interface Task {
     id: string;
     title: string;
@@ -98,6 +130,12 @@ const Api: React.FC = () => {
 
   return (
     <div className="App-content">
+      <div className={classes.paperLeft}>
+        <Paper elevation={3} />
+      </div>
+      <div className={classes.paperRight}>
+        <Paper elevation={3} />
+      </div>
       <div className="operation-area">
         <Form
           editedTask={editedTask}
